@@ -93,3 +93,12 @@ h3.widget-title {
 	width: 100%;
 	overflow-x: auto;
 }
+
+
+/**** Staff Stuff ****/
+#content div.staff h3 {
+	margin-bottom: 10px;
+}
+#content div.staff {
+	margin-bottom: 20px;
+}
