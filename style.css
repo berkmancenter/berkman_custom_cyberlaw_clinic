@@ -1,0 +1,102 @@
+/*
+Theme Name: Cyberlaw Clinic Theme
+Description: Custom Cyberlaw Clinic theme - child theme of twentyten 
+Author: jclark
+Template: twentyten
+*/
+
+@import url("../twentyten/style.css");
+
+#menu-navigation {
+	display: none;
+}
+
+ul.children {
+	max-height: 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#site-info, {
+	display: none;
+}
+
+.widget-area ul ul {
+	list-style-type: none;
+}
+
+.widget-area ul ul li {
+	margin-bottom: 10px;
+}
+#wrapper {
+	margin-top: 0;
+	border: 4px solid #D6E68A;
+	border-width: 0 4px;
+}
+
+body {
+	background-color: #95AA61;
+}
+
+#footer {
+	margin: 0;
+}
+#site-title {
+	font-family: "Muli";
+	font-size: 50px;
+	color: #121310;
+	width: auto;
+	float: none;
+	line-height: normal;
+}
+#site-description {
+	float: none;
+	color: #121310;
+	width: 400px;
+}
+#access li {
+	font-size: 16px;
+	background-color: #121310;
+	font-family: "Muli";
+}
+#access ul ul a:hover {
+	background-color: #899752;
+}
+#access ul ul a {
+	font-size: 13px;
+	width: 200px;
+	padding-right: 30px;
+}
+#access ul ul {
+	width: auto;
+}
+.entry-title {
+	font-family: "Muli";
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Muli";
+}
+h3.widget-title {
+	font-family: "Muli";
+	font-size: 21px;
+	margin-bottom: 10px;
+}
+#container.one-column #content {
+	width: auto;
+	margin: 0 40px;
+}
+#secondary {
+	float: none;
+	clear: none;
+	width: 100%;
+	overflow-x: auto;
+	/*margin-bottom: 20px;*/
+}
+.widget-title .rsswidget img {
+	visibility: hidden;
+}
+#secondary ul {
+}
+#rss3.widget-container {
+	margin-bottom: 5px;
+}
