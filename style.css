@@ -7,42 +7,14 @@ Template: twentyten
 
 @import url("../twentyten/style.css");
 
-#menu-navigation {
-	display: none;
-}
-
-ul.children {
-	max-height: 400px;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
-
-#site-info, {
-	display: none;
-}
-
-.widget-area ul ul {
-	list-style-type: none;
-}
-
-.widget-area ul ul li {
-	margin-bottom: 10px;
-}
-#wrapper {
-	margin-top: 0;
-	border: 4px solid #D6E68A;
-	border-width: 0 4px;
-}
-
+/**** General Stuff ****/
 body {
 	background-color: #95AA61;
 }
-
-#footer {
-	margin: 0;
+.entry-title, #site-title, h1, h2, h3, h4, h5, h6, #access li, h3.widget-title {
+	font-family: "Muli";
 }
 #site-title {
-	font-family: "Muli";
 	font-size: 50px;
 	color: #121310;
 	width: auto;
@@ -54,10 +26,55 @@ body {
 	color: #121310;
 	width: 400px;
 }
+#wrapper {
+	margin-top: 0;
+	border: 4px solid #D6E68A;
+	border-width: 0 4px;
+}
+#container.one-column #content {
+	width: auto;
+	margin: 0 40px;
+}
+#footer {
+	margin: 0;
+}
+#site-info {
+	display: none;
+}
+
+
+/**** Nav Stuff ****/
+#menu-navigation {
+	display: none;
+}
+
+ul.children {
+	max-height: 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+
+/**** Widget Stuff ****/
+h3.widget-title {
+	font-size: 21px;
+	margin-bottom: 10px;
+}
+.widget-area ul ul {
+	list-style-type: none;
+}
+.widget-area ul ul li {
+	margin-bottom: 10px;
+}
+.widget-title .rsswidget img {
+	visibility: hidden;
+}
+#rss3.widget-container {
+	margin-bottom: 5px;
+}
 #access li {
 	font-size: 16px;
 	background-color: #121310;
-	font-family: "Muli";
 }
 #access ul ul a:hover {
 	background-color: #899752;
@@ -70,33 +87,9 @@ body {
 #access ul ul {
 	width: auto;
 }
-.entry-title {
-	font-family: "Muli";
-}
-h1, h2, h3, h4, h5, h6 {
-	font-family: "Muli";
-}
-h3.widget-title {
-	font-family: "Muli";
-	font-size: 21px;
-	margin-bottom: 10px;
-}
-#container.one-column #content {
-	width: auto;
-	margin: 0 40px;
-}
 #secondary {
 	float: none;
 	clear: none;
 	width: 100%;
 	overflow-x: auto;
-	/*margin-bottom: 20px;*/
-}
-.widget-title .rsswidget img {
-	visibility: hidden;
-}
-#secondary ul {
-}
-#rss3.widget-container {
-	margin-bottom: 5px;
 }
