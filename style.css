@@ -48,7 +48,7 @@ body {
 	margin: 0;
 }
 #site-generator {
-	/*display: none;*/
+	display: none;
 }
 
 
@@ -130,6 +130,8 @@ h3.widget-title {
 }
 #colophon .menu {
 	/*background-color: #121310;*/
+	float: left;
+	width: 700px;
 }
 #colophon .menu a {
 	text-decoration: none;
@@ -143,5 +145,10 @@ h3.widget-title {
 	display: none;
 }
 #colophon {
-	padding-top: 0;
+	padding: 0;
+}
+#site-info {
+	margin: 10px;
+	float: right;
+	width: auto;
 }
