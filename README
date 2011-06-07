@@ -10,7 +10,7 @@ This is a custom Wordpress theme for the Cyberlaw Clinic at the Berkman Center f
 
 == To Do ==
 
-Remove drop down plugin dependency
+<strike>Remove drop down plugin dependency</strike>
 Come up with a way to make Flickr fetching configurable (add a plugin...? but still be able to tie into js events)
 Favicon
 IE Testing
