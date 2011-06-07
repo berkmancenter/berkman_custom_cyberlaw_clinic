@@ -15,17 +15,18 @@ body {
 .entry-title, #site-title, #site-info, h1, h2, h3, h4, h5, h6, #access li, h3.widget-title {
 	font-family: "Muli";
 }
+#site-title, #site-title a, #content .entry-title, #site-description {
+	color: #121310;
+}
 #site-title {
 	font-size: 50px;
-	color: #121310;
-	width: auto;
 	float: none;
+	width: auto;
 	line-height: normal;
 }
 #site-description {
-	float: none;
-	color: #121310;
 	width: 400px;
+	float: none;
 }
 #wrapper {
 	border: 4px solid #D6E68A;
@@ -43,12 +44,6 @@ body {
 }
 .entry-content ul, .entry-content ol {
 	margin-left: 40px;
-}
-#footer {
-	margin: 0;
-}
-#site-generator {
-	display: none;
 }
 
 
@@ -81,7 +76,7 @@ h3.widget-title {
 #rss3.widget-container {
 	margin-bottom: 5px;
 }
-#access li {
+#access li, #access {
 	font-size: 16px;
 	background-color: #121310;
 }
@@ -146,6 +141,13 @@ h3.widget-title {
 }
 #colophon {
 	padding: 0;
+	border-top: 4px solid #121310;
+}
+#footer {
+	margin: 0;
+}
+#site-generator {
+	display: none;
 }
 #site-info {
 	margin: 10px;
