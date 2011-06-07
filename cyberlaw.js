@@ -1,4 +1,5 @@
 jQuery(document).ready(function() {
+	jQuery('#colophon').prepend(jQuery('#access').html());
 	jQuery('#rss-3 ul').cycle({
 		fx: 'scrollUp', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 		timeout: 0

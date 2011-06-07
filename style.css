@@ -41,6 +41,9 @@ body {
 	border-bottom: 4px solid #D6E68A;
 	line-height: 18px;
 }
+.entry-content ul, .entry-content ol {
+	margin-left: 40px;
+}
 #footer {
 	margin: 0;
 }
@@ -112,5 +115,33 @@ h3.widget-title {
 	margin-bottom: 10px;
 }
 #content div.staff {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
+}
+
+
+/**** Footer ****/
+#colophon .menu > ul > li {
+	float: none;
+	display: inline-block;
+	width: auto;
+	margin: 10px;
+	font-size: 12px;
+	vertical-align: top;
+}
+#colophon .menu {
+	/*background-color: #121310;*/
+}
+#colophon .menu a {
+	text-decoration: none;
+	color: #666;
+}
+#colophon .menu > ul > li > ul > li {
+	display: block;
+	float: none;
+}
+#colophon .children {
+	display: none;
+}
+#colophon {
+	padding-top: 0;
 }
