@@ -80,7 +80,7 @@ h3.widget-title {
 	margin-bottom: 10px;
 }
 .widget-title .rsswidget img {
-	visibility: hidden;
+	display: none;
 }
 #rss3.widget-container {
 	margin-bottom: 5px;
