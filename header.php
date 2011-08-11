@@ -62,9 +62,7 @@
 				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'span' : 'span'; ?>
 				<<?php echo $heading_tag; ?> id="site-title">
 					<span>
-                        <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-                            <img src="<?php echo get_stylesheet_directory_uri() . '/images/clinic-logo.png'; ?>" alt="<?php bloginfo( 'name' ); ?>" />
-                        </a>
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</span>
 				</<?php echo $heading_tag; ?>>
 				<span id="site-description"><?php bloginfo( 'description' ); ?></span>

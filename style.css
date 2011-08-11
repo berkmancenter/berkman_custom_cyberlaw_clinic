@@ -15,6 +15,9 @@ body {
 	font-family: "Crimson Text";
     font-weight: 300;
 }
+#header {
+    padding-top: 20px;
+}
 #branding img {
     border-width: 0;
 }
@@ -50,6 +53,9 @@ body {
 	margin-left: 40px;
 }
 
+#access {
+    background: #444;
+}
 #access a {
     font-size: 1.3em;
     color: #CCC;
@@ -113,11 +119,11 @@ h3.widget-title {
 	margin: 10px;
 	font-size: 12px;
 	text-decoration: none;
-	color: #666;
+	color: #444;
 }
 #colophon {
 	padding-top: 10px;
-	border-top: 4px solid #121310;
+	border-top: 2px solid #666;
 }
 #footer {
 	margin: 0;
