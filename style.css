@@ -9,32 +9,35 @@ Template: twentyten
 
 /**** General Stuff ****/
 body {
-	background-color: #EEE;
+	background-color: #F2F2F2;
+	font-family: "Crimson Text";
+    font-size: 13px;
+    color: #333;
 }
 .entry-title, #site-title, #site-info, h1, h2, h3, h4, h5, h6, #access li, h3.widget-title {
 	font-family: "Crimson Text";
-    font-weight: 300;
 }
 #header {
-    padding-top: 20px;
+    padding-top: 17px;
 }
 #branding img {
     border-width: 0;
 }
 #site-title, #site-title a, #content .entry-title, #site-description {
-	color: #121310;
+	color: #333;
 }
 #site-title {
-	font-size: 50px;
+	font-size: 55px;
+	line-height: 65px;
 	float: none;
 	width: auto;
-	line-height: normal;
 }
 #site-title a {
-    font-weight: 300;
+    font-weight: normal;
 }
 #site-description {
 	width: 400px;
+    font-size: 14px;
 	float: none;
 }
 #wrapper {
@@ -45,9 +48,14 @@ body {
 	margin: 0 40px;
 }
 #content .entry-title, #primary .widget-title {
+    font-size: 24px;
+	line-height: 28px;
+    font-weight: normal;
 	border-bottom: 1px dotted #BBB;
-	line-height: 18px;
-    font-weight: 300;
+}
+#content .entry-title {
+    font-size: 30px;
+    line-height: 36px;
 }
 .entry-content ul, .entry-content ol {
 	margin-left: 40px;
@@ -55,6 +63,7 @@ body {
 
 #access {
     background: #444;
+    margin-top: 6px;
 }
 #access a {
     font-size: 1.3em;
@@ -91,6 +100,9 @@ h3.widget-title {
 #rss3.widget-container {
 	margin-bottom: 5px;
 }
+.widget_rss a.rsswidget {
+    color: #333;
+}
 #primary {
 	width: 240px;
 }
@@ -116,14 +128,14 @@ h3.widget-title {
 
 /**** Footer ****/
 #colophon a {
-	margin: 10px;
-	font-size: 12px;
+	font-size: 13px;
+	margin: 0 10px;
 	text-decoration: none;
 	color: #444;
 }
 #colophon {
 	padding-top: 10px;
-	border-top: 2px solid #666;
+	border-top: 2px solid #333;
 }
 #footer {
 	margin: 0;
@@ -132,6 +144,7 @@ h3.widget-title {
 	display: none;
 }
 #site-info {
+    font-weight: normal;
 	float: right;
 	width: auto;
 }
