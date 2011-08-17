@@ -148,3 +148,6 @@ h3.widget-title {
 	float: right;
 	width: auto;
 }
+#berkman-footer-links {
+    display: none;
+}
