@@ -42,6 +42,7 @@ body {
 }
 #wrapper {
 	border: 2px solid #BBB;
+    margin-bottom: 20px;
 }
 #container.one-column #content {
 	width: auto;
