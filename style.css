@@ -164,4 +164,8 @@ h3.widget-title {
 }
 #fullwidth-footer {
     font-size: 11px;
+    margin: 0;
+}
+#fullwidth-footer li {
+    list-style-type: none;
 }

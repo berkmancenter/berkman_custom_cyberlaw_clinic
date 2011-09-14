@@ -28,8 +28,9 @@
 				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentyten' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentyten' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s.', 'twentyten' ), 'WordPress' ); ?></a>
 			</div><!-- #site-generator -->
 
-            <div id="fullwidth-footer">
-            </div>
+            <ul id="fullwidth-footer">
+            <?php dynamic_sidebar('fullwidth-footer'); ?>
+            </ul>
 		</div><!-- #colophon -->
 	</div><!-- #footer -->
 
