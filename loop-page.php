@@ -26,7 +26,7 @@
 
 					<div class="entry-content">
 						<?php the_content(); ?>
-						<?php $children = wp_list_pages(array('title_li' => '', 'child_of' => $post->ID, 'echo' => 0));
+						<?php $children = wp_list_pages(array('title_li' => '', 'child_of' => $post->ID, 'echo' => 0, 'sort_column' => 'post_title,menu_order'));
 						if ($children) { ?>
 						<ul>
 						<?php echo $children; ?>
