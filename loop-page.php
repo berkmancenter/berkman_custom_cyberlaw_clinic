@@ -26,6 +26,27 @@
 
 					<div class="entry-content">
 						<?php the_content(); ?>
+                        <?php
+                            $post_type = get_post_meta($post->ID, 'post_type', true);
+                            $contents = array();
+                            if (!empty($post_type)) {
+                                $args = array(
+                                  'post_type' => $post_type,
+                                  'post_status' => 'publish',
+                                  'order' => 'ASC',
+                                  'orderby' => 'menu_order'
+                                );
+                                $my_query = new WP_Query($args);
+                                if ( $my_query->have_posts() ) { 
+                                   while ( $my_query->have_posts() ) { 
+                                       $my_query->the_post();
+                                       $contents[] = get_the_content();
+                                   }
+                                }
+                                echo implode('<hr />', $contents);
+                                wp_reset_postdata();
+                            }
+                        ?>
 						<?php $children = wp_list_pages(array('title_li' => '', 'child_of' => $post->ID, 'echo' => 0, 'sort_column' => 'post_title,menu_order'));
 						if ($children) { ?>
 						<ul>
