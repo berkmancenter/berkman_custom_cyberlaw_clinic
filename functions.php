@@ -7,10 +7,32 @@ function add_fullwidth_footer() {
     register_sidebar($args);
 }
 function add_custom_post_types() {
+
+    register_post_type('amicus_brief', array(
+        'label' => 'Amicus Briefs',
+        'labels' => array('name' => 'Amicus Briefs', 'singular_name' => 'Amicus Brief'),
+        'public' => true,
+        'supports' => array('title', 'editor', 'page-attributes')
+    ));
+
+    register_post_type('publication', array(
+        'label' => 'Publications',
+        'labels' => array('name' => 'Publications', 'singular_name' => 'Publication'),
+        'public' => true,
+        'supports' => array('title', 'editor', 'page-attributes')
+    ));
+
     register_post_type('filing', array(
         'label' => 'Filings',
         'labels' => array('name' => 'Filings', 'singular_name' => 'Filing'),
         'description' => 'Filings and publications',
+        'public' => true,
+        'supports' => array('title', 'editor', 'page-attributes')
+    ));
+
+    register_post_type('press_release', array(
+        'label' => 'Press Releases',
+        'labels' => array('name' => 'Press Releases', 'singular_name' => 'Press Release'),
         'public' => true,
         'supports' => array('title', 'editor', 'page-attributes')
     ));
@@ -23,26 +45,16 @@ function add_custom_post_types() {
         'supports' => array('title', 'editor', 'page-attributes')
     ));
 
-    register_post_type('upcoming_event', array(
-        'label' => 'Upcoming Events',
-        'labels' => array('name' => 'Upcoming Events', 'singular_name' => 'Upcoming Event'),
-        'description' => 'Events that are up and coming',
+    register_post_type('event', array(
+        'label' => 'Events',
+        'labels' => array('name' => 'Events', 'singular_name' => 'Event'),
         'public' => true,
-        'supports' => array('title', 'editor', 'page-attributes')
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
 
-    register_post_type('past_event', array(
-        'label' => 'Past Events',
-        'labels' => array('name' => 'Past Events', 'singular_name' => 'Past Event'),
-        'description' => 'Events that are no longer in the future due to the passage of time',
-        'public' => true,
-        'supports' => array('title', 'editor', 'page-attributes')
-    ));
-
-    register_post_type('staff_member', array(
-        'label' => 'Staff Members',
-        'labels' => array('name' => 'Staff Members', 'singular_name' => 'Staff Member'),
-        'description' => 'Members of the Cyberlaw Clinic staff',
+    register_post_type('project', array(
+        'label' => 'Project',
+        'labels' => array('name' => 'Projects', 'singular_name' => 'Project'),
         'public' => true,
         'supports' => array('title', 'editor', 'page-attributes')
     ));
@@ -56,6 +68,7 @@ function custom_post_shortcode($atts) {
         'orderby' => 'menu_order'
 	), $atts ) );
     $args = array();
+    $event_type = null;
 
     if (empty($type) && empty($id)) {
         return '';
@@ -63,6 +76,11 @@ function custom_post_shortcode($atts) {
 
     if ($count == 'all') {
         $count = -1;
+    }
+
+    if ($type == 'upcoming_event' || $type == 'past_event') {
+        $event_type = $type;
+        $type = 'event';
     }
 
     $contents = array();
@@ -82,7 +100,20 @@ function custom_post_shortcode($atts) {
     if ( $my_query->have_posts() ) { 
        while ( $my_query->have_posts() ) { 
            $my_query->the_post();
-           $contents[] = get_the_content();
+
+           // Handle event dates so we don't need both upcoming and past event custom post types
+           $event_date = get_post_meta(get_the_ID(), 'event_date', true);
+           if (!is_null($event_type) && !empty($event_date)) {
+               if ($event_type == 'upcoming_event' && strtotime($event_date) > $_SERVER['REQUEST_TIME']) {
+                   $contents[] = get_the_content();
+               }
+               if ($event_type == 'past_event' && strtotime($event_date) < $_SERVER['REQUEST_TIME']) {
+                   $contents[] = get_the_content();
+               }
+           }
+           else { 
+               $contents[] = get_the_content();
+           }
        }
     }
     $html = implode('<hr />', $contents);
