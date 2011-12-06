@@ -10,53 +10,108 @@ function add_custom_post_types() {
 
     register_post_type('amicus_brief', array(
         'label' => 'Amicus Briefs',
-        'labels' => array('name' => 'Amicus Briefs', 'singular_name' => 'Amicus Brief'),
+        'labels' => array(
+            'name' => 'Amicus Briefs',
+            'singular_name' => 'Amicus Brief',
+            'add_new_item' => 'Add New Amicus Brief',
+            'edit_item' => 'Edit Amicus Brief',
+            'new_item' => 'New Amicus Brief',
+            'view_item' => 'View Amicus Brief',
+            'search_items' => 'Search Amicus Briefs'
+        ),
         'public' => true,
-        'supports' => array('title', 'editor', 'page-attributes')
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
 
     register_post_type('publication', array(
         'label' => 'Publications',
-        'labels' => array('name' => 'Publications', 'singular_name' => 'Publication'),
+        'labels' => array(
+            'name' => 'Publications',
+            'singular_name' => 'Publication',
+            'add_new_item' => 'Add New Publication',
+            'edit_item' => 'Edit Publication',
+            'new_item' => 'New Publication',
+            'view_item' => 'View Publication',
+            'search_items' => 'Search Publications'
+        ),
         'public' => true,
-        'supports' => array('title', 'editor', 'page-attributes')
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
 
     register_post_type('filing', array(
         'label' => 'Filings',
-        'labels' => array('name' => 'Filings', 'singular_name' => 'Filing'),
-        'description' => 'Filings and publications',
+        'labels' => array(
+            'name' => 'Filings',
+            'singular_name' => 'Filing',
+            'add_new_item' => 'Add New Filing',
+            'edit_item' => 'Edit Filing',
+            'new_item' => 'New Filing',
+            'view_item' => 'View Filing',
+            'search_items' => 'Search Filings'
+        ),
         'public' => true,
-        'supports' => array('title', 'editor', 'page-attributes')
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
 
     register_post_type('press_release', array(
         'label' => 'Press Releases',
-        'labels' => array('name' => 'Press Releases', 'singular_name' => 'Press Release'),
+        'labels' => array(
+            'name' => 'Press Releases',
+            'singular_name' => 'Press Release',
+            'add_new_item' => 'Add New Press Release',
+            'edit_item' => 'Edit Press Release',
+            'new_item' => 'New Press Release',
+            'view_item' => 'View Press Release',
+            'search_items' => 'Search Press Releases'
+        ),
         'public' => true,
-        'supports' => array('title', 'editor', 'page-attributes')
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
 
     register_post_type('news_item', array(
         'label' => 'News Items',
-        'labels' => array('name' => 'News Items', 'singular_name' => 'News Item'),
+        'labels' => array(
+            'name' => 'News Items',
+            'singular_name' => 'News Item',
+            'add_new_item' => 'Add New News Item',
+            'edit_item' => 'Edit News Item',
+            'new_item' => 'New News Item',
+            'view_item' => 'View News Item',
+            'search_items' => 'Search News Items'
+        ),
         'description' => 'Occurences of the Clinic in the news',
         'public' => true,
-        'supports' => array('title', 'editor', 'page-attributes')
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
 
     register_post_type('event', array(
         'label' => 'Events',
-        'labels' => array('name' => 'Events', 'singular_name' => 'Event'),
+        'labels' => array(
+            'name' => 'Events',
+            'singular_name' => 'Event',
+            'add_new_item' => 'Add New Event',
+            'edit_item' => 'Edit Event',
+            'new_item' => 'New Event',
+            'view_item' => 'View Event',
+            'search_items' => 'Search Events'
+        ),
         'public' => true,
         'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
 
     register_post_type('project', array(
         'label' => 'Project',
-        'labels' => array('name' => 'Projects', 'singular_name' => 'Project'),
+        'labels' => array(
+            'name' => 'Projects',
+            'singular_name' => 'Project',
+            'add_new_item' => 'Add New Project',
+            'edit_item' => 'Edit Project',
+            'new_item' => 'New Project',
+            'view_item' => 'View Project',
+            'search_items' => 'Search Projects'
+        ),
         'public' => true,
-        'supports' => array('title', 'editor', 'page-attributes')
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
 }
 function custom_post_shortcode($atts) {
@@ -65,7 +120,9 @@ function custom_post_shortcode($atts) {
 		'id' => null,
 		'count' => 'all',
         'order' => 'ASC',
-        'orderby' => 'menu_order'
+        'orderby' => 'date',
+        'wrap' => 'false',
+        'showtitle' => 'false'
 	), $atts ) );
     $args = array();
     $event_type = null;
@@ -98,33 +155,75 @@ function custom_post_shortcode($atts) {
     }
     $my_query = new WP_Query($args);
     if ( $my_query->have_posts() ) { 
-       while ( $my_query->have_posts() ) { 
-           $my_query->the_post();
+        while ( $my_query->have_posts() ) { 
+            $my_query->the_post();
+            $new_content = null;
 
-           // Handle event dates so we don't need both upcoming and past event custom post types
-           $event_date = get_post_meta(get_the_ID(), 'event_date', true);
-           if (!is_null($event_type) && !empty($event_date)) {
-               if ($event_type == 'upcoming_event' && strtotime($event_date) > $_SERVER['REQUEST_TIME']) {
-                   $contents[] = get_the_content();
-               }
-               if ($event_type == 'past_event' && strtotime($event_date) < $_SERVER['REQUEST_TIME']) {
-                   $contents[] = get_the_content();
-               }
-           }
-           else { 
-               $contents[] = get_the_content();
-           }
-       }
+            // Handle event dates so we don't need both upcoming and past event custom post types
+            $event_date = get_post_meta(get_the_ID(), 'event_date', true);
+            if (!is_null($event_type) && !empty($event_date)) {
+                switch ($event_type) {
+                    case 'upcoming_event':
+                    if (strtotime($event_date) > $_SERVER['REQUEST_TIME']) {
+                        $new_content = get_the_content();
+                    }
+                    break;
+                    case 'past_event':
+                    if (strtotime($event_date) < $_SERVER['REQUEST_TIME']) {
+                        $new_content = get_the_content();
+                    }
+                    break;
+                }
+            }
+            else { 
+                $new_content = get_the_content();
+            }
+
+            if (!is_null($new_content)) {
+                if ($showtitle == 'true') {
+                    $new_content = '<h3 class="custom-entry-title">' . get_the_title() . '</h3>' . $new_content;
+                }
+                if ($wrap == 'true') {
+                    $contents[] = '<div class="custom-entry">' . $new_content . '</div>';
+                }
+                else {
+                    $contents[] = $new_content;
+                }
+            }
+        }
     }
     $html = implode('<hr />', $contents);
     wp_reset_postdata();
 
 	return $html;
 }
+function featured_shortcode($atts) {
+
+    $html = '<div class="featured-entries">';
+    $args = array(
+        'post_type' => 'any',
+        'post_status' => 'publish',
+        'meta_key' => 'featured',
+        'meta_value' => 'true'
+    );
+    $my_query = new WP_Query($args);
+
+    if ( $my_query->have_posts() ) { 
+        while ( $my_query->have_posts() ) { 
+            $my_query->the_post();
+            $html .= '<h3 class="featured-entry-title">' . get_the_title() . '</h3><div class="featured-entry">' . get_the_content() . '</div>';
+        }
+    }
+    wp_reset_postdata();
+
+	return $html . '</div>';
+}
 wp_enqueue_script('jquery', 'jquery');
 wp_enqueue_script('jquerycycle', get_bloginfo('stylesheet_directory') . '/jquery.cycle.all.min.js');
 wp_enqueue_script('cyberlaw.js', get_bloginfo('stylesheet_directory') . '/cyberlaw.js');
+wp_enqueue_script('jquery-ui', get_bloginfo('stylesheet_directory') . '/jquery-ui-1.8.16.custom.min.js');
 add_action('init', 'add_fullwidth_footer');
 add_action('init', 'add_custom_post_types');
 add_shortcode( 'custom-post', 'custom_post_shortcode' );
+add_shortcode( 'featured', 'featured_shortcode' );
 ?>
