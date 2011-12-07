@@ -173,3 +173,54 @@ h3.widget-title {
 #fullwidth-footer li {
     list-style-type: none;
 }
+
+/**** Front Page ****/
+#content h3.featured-entry-title {
+    background-color: #EEE;
+    border: 1px solid #BBB;
+    border-radius: 10px;
+    padding: 2px 24px 2px 10px;
+    margin: 12px 0 0 0;
+    cursor: pointer;
+    outline: none;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+#content h3.ui-state-active {
+    border-radius: 10px 10px 0 0;
+    border-width: 1px 1px 0;
+}
+#content h3.featured-entry-title:hover {
+    border-color: #666;
+}
+#content .featured-entry p {
+    margin-bottom: 0;
+}
+.featured-entry {
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #CCC;
+    border-width: 0 1px 1px 1px;
+    padding: 20px;
+}
+.featured-entry-type {
+    font-style: italic;
+}
+.featured-entry img {
+    border: 1px solid #CCC;
+}
+.ui-icon-triangle-1-s, .ui-icon-triangle-1-e {
+    width: 20px;
+    height: 28px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: right;
+    margin-right: -18px;
+}
+.ui-icon-triangle-1-s {
+    background-image: url('images/minus_8x2.png');
+}
+.ui-icon-triangle-1-e {
+    background-image: url('images/plus_8x8.png');
+}
