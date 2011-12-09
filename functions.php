@@ -203,8 +203,7 @@ function featured_shortcode($atts) {
     $args = array(
         'post_type' => 'any',
         'post_status' => 'publish',
-        'meta_key' => 'featured',
-        'meta_value' => 'true'
+        'meta_key' => 'featured'
     );
     $my_query = new WP_Query($args);
 
