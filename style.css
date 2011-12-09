@@ -13,6 +13,7 @@ body {
 	font-family: "Crimson Text";
     font-size: 13px;
     color: #333;
+    overflow-y: scroll;
 }
 .entry-title, #site-title, #site-info, h1, h2, h3, h4, h5, h6, #access li, h3.widget-title {
 	font-family: "Crimson Text";
