@@ -7,17 +7,4 @@ jQuery(document).ready(function() {
         width: 205,
         pause: 1
 	});
-    jQuery('.featured-entries').accordion({
-        autoHeight: false,
-        collapsible: true,
-        active: false
-    });
-    jQuery('.featured-entry-title').hoverIntent(
-        function() {
-            if (jQuery(this).hasClass('ui-state-default')) {
-                jQuery('.featured-entries').accordion('activate', this);
-            }
-        },
-        function() { }
-    );
 });

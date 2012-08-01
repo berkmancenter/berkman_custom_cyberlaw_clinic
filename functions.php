@@ -233,7 +233,9 @@ function featured_shortcode($atts) {
     $args = array(
         'post_type' => 'any',
         'post_status' => 'publish',
-        'meta_key' => 'featured'
+        'meta_key' => 'featured',
+        'orderby' => 'rand',
+        'posts_per_page' => 1
     );
     $my_query = new WP_Query($args);
 
@@ -241,7 +243,7 @@ function featured_shortcode($atts) {
         while ( $my_query->have_posts() ) { 
             $my_query->the_post();
             global $post;
-            $html .= '<h3 class="featured-entry-title"><span class="featured-entry-type">' . get_post_type_object($post->post_type)->labels->singular_name . '</span> &ndash; <span class="title">' . get_the_title() . '</span></h3><div class="featured-entry">' . get_the_content() . '</div>';
+            $html .= '<h3 class="featured-entry-title"><a href="' . get_permalink(get_the_ID()) . '"><span class="title">' . get_the_title() . '</span></a></h3><div class="featured-entry">' . get_the_content() . '</div>';
         }
     }
     wp_reset_postdata();
