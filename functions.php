@@ -39,15 +39,15 @@ function add_custom_post_types() {
     ));
 
     register_post_type('filing', array(
-        'label' => 'Filings',
+        'label' => 'Other Filings',
         'labels' => array(
-            'name' => 'Filings',
-            'singular_name' => 'Filing',
+            'name' => 'Other Filings',
+            'singular_name' => 'Other Filing',
             'add_new_item' => 'Add New Filing',
-            'edit_item' => 'Edit Filing',
-            'new_item' => 'New Filing',
-            'view_item' => 'View Filing',
-            'search_items' => 'Search Filings'
+            'edit_item' => 'Edit Other Filing',
+            'new_item' => 'New Other Filing',
+            'view_item' => 'View Other Filing',
+            'search_items' => 'Search Other Filings'
         ),
         'public' => true,
         'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
