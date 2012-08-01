@@ -113,6 +113,36 @@ function add_custom_post_types() {
         'public' => true,
         'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
+
+    register_post_type('bio', array(
+        'label' => 'Bio',
+        'labels' => array(
+            'name' => 'Bios',
+            'singular_name' => 'Bio',
+            'add_new_item' => 'Add New Bio',
+            'edit_item' => 'Edit Bio',
+            'new_item' => 'New Bio',
+            'view_item' => 'View Bio',
+            'search_items' => 'Search Bios'
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
+    ));
+
+    register_post_type('client', array(
+        'label' => 'Client',
+        'labels' => array(
+            'name' => 'Clients',
+            'singular_name' => 'Client',
+            'add_new_item' => 'Add New Client',
+            'edit_item' => 'Edit Client',
+            'new_item' => 'New Client',
+            'view_item' => 'View Client',
+            'search_items' => 'Search Clients'
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
+    ));
 }
 function custom_post_shortcode($atts) {
 	extract( shortcode_atts( array(
