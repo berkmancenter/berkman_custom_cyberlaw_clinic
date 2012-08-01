@@ -225,3 +225,8 @@ h3.widget-title {
 .ui-icon-triangle-1-e {
     background-image: url('images/plus_8x8.png');
 }
+
+/**** Gravity Forms ****/
+.entry-content .gform_wrapper input, .entry-content .gform_wrapper select {
+    margin: 0;
+}
