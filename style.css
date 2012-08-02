@@ -127,17 +127,6 @@ h3.widget-title {
 	margin-bottom: 10px;
 }
 
-/**** Client Stuff ****/
-.client {
-    display: inline-block;
-    width: 275px;
-    margin: 20px 20px 40px;
-    text-align: center;
-}
-.client img {
-    margin-bottom: 5px;
-}
-
 /**** Footer ****/
 #colophon a {
 	font-size: 13px;
@@ -241,4 +230,25 @@ h3.widget-title {
 }
 #content .gform_heading, #content .gfield_html_formatted {
     text-align: justify;
+}
+
+/**** Custom Entries ****/
+#content .custom-entry {
+    border: 1px solid #DADADA;
+    border-width: 1px 0px 0px 1px;
+    padding: 5px 20px 20px;
+    margin-bottom: 30px;
+}
+#content .custom-entry-title {
+    border-bottom: 1px solid #eee;
+}
+#content .custom-entry-title a {
+    color: black;
+    text-decoration: none;
+}
+#content .custom-entry-title a:hover {
+    color: #777;
+}
+#content .custom-entry p {
+    margin-bottom: 0;
 }

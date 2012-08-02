@@ -151,8 +151,9 @@ function custom_post_shortcode($atts) {
 		'count' => 'all',
         'order' => 'ASC',
         'orderby' => 'date',
-        'wrap' => 'false',
-        'showtitle' => 'false'
+        'wrap' => 'true',
+        'showtitle' => 'true',
+        'hrs' => 'false'
 	), $atts ) );
     $args = array();
     $event_type = null;
@@ -211,7 +212,7 @@ function custom_post_shortcode($atts) {
 
             if (!is_null($new_content)) {
                 if ($showtitle == 'true') {
-                    $new_content = '<h3 class="custom-entry-title">' . get_the_title() . '</h3>' . $new_content;
+                    $new_content = '<h3 class="custom-entry-title"><a href="' . get_permalink(get_the_ID()) . '">' . get_the_title() . '</a></h3>' . $new_content;
                 }
                 if ($wrap == 'true') {
                     $contents[] = '<div class="custom-entry">' . $new_content . '</div>';
@@ -222,7 +223,11 @@ function custom_post_shortcode($atts) {
             }
         }
     }
-    $html = implode('<hr />', $contents);
+    if ($hrs == 'true') {
+        $html = implode('<hr />', $contents);
+    } else {
+        $html = implode('', $contents);
+    }
     wp_reset_postdata();
 
 	return $html;
