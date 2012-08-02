@@ -239,6 +239,6 @@ h3.widget-title {
     text-decoration: underline;
     color: #333;
 }
-#content .gform_description, #content .gfield_html_formatted {
+#content .gform_heading, #content .gfield_html_formatted {
     text-align: justify;
 }
