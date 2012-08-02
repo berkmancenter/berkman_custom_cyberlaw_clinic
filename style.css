@@ -233,3 +233,9 @@ h3.widget-title {
 .entry-content .gform_wrapper input, .entry-content .gform_wrapper select {
     margin: 0;
 }
+#content .gform_title {
+    font-size: 100%;
+    font-weight: normal;
+    text-decoration: underline;
+    color: #333;
+}
