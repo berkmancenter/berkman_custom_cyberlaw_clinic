@@ -153,13 +153,14 @@ function custom_post_shortcode($atts) {
         'orderby' => 'date',
         'wrap' => 'true',
         'showtitle' => 'true',
-        'hrs' => 'false'
+        'hrs' => 'false',
+        'meta_key' => null
 	), $atts ) );
     $args = array();
     $event_type = null;
 
     if (empty($type) && empty($id)) {
-        return '';
+        $type = 'any';
     }
 
     if ($count == 'all') {
@@ -181,7 +182,8 @@ function custom_post_shortcode($atts) {
           'post_status' => 'publish',
           'posts_per_page' => $count,
           'order' => $order,
-          'orderby' => $orderby
+          'orderby' => $orderby,
+          'meta_key' => $meta_key
         );
     }
     $my_query = new WP_Query($args);
@@ -215,7 +217,7 @@ function custom_post_shortcode($atts) {
                     $new_content = '<h3 class="custom-entry-title"><a href="' . get_permalink(get_the_ID()) . '">' . get_the_title() . '</a></h3>' . $new_content;
                 }
                 if ($wrap == 'true') {
-                    $contents[] = '<div class="custom-entry">' . $new_content . '</div>';
+                    $contents[] = '<div class="custom-entry ' . get_post_type(get_the_ID()) . '">' . $new_content . '</div>';
                 }
                 else {
                     $contents[] = $new_content;
@@ -233,27 +235,7 @@ function custom_post_shortcode($atts) {
 	return $html;
 }
 function featured_shortcode($atts) {
-
-    $html = '<div class="featured-entries">';
-    $args = array(
-        'post_type' => 'any',
-        'post_status' => 'publish',
-        'meta_key' => 'featured',
-        'orderby' => 'rand',
-        'posts_per_page' => 1
-    );
-    $my_query = new WP_Query($args);
-
-    if ( $my_query->have_posts() ) { 
-        while ( $my_query->have_posts() ) { 
-            $my_query->the_post();
-            global $post;
-            $html .= '<h3 class="featured-entry-title"><a href="' . get_permalink(get_the_ID()) . '"><span class="title">' . get_the_title() . '</span></a></h3><div class="featured-entry">' . get_the_content() . '</div>';
-        }
-    }
-    wp_reset_postdata();
-
-	return $html . '</div>';
+    return do_shortcode('[custom-post orderby="rand" meta_key="featured" count="1"]');
 }
 wp_enqueue_script('jquerycycle', get_bloginfo('stylesheet_directory') . '/jquery.cycle.all.min.js', array('jquery'));
 wp_enqueue_script('cyberlaw.js', get_bloginfo('stylesheet_directory') . '/cyberlaw.js', array('jquery'));

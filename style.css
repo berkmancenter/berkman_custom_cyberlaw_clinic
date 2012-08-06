@@ -172,16 +172,6 @@ h3.widget-title {
 }
 
 /**** Front Page ****/
-#content h3.featured-entry-title {
-    background-color: #EEE;
-    border: 1px solid #CCC;
-    padding: 2px 24px 2px 10px;
-    margin: 12px 0 0 0;
-    outline: none;
-    white-space: nowrap;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-}
 #content h3.featured-entry-title a {
     text-decoration: none;
     color: black;
@@ -256,4 +246,7 @@ h3.widget-title {
 }
 #content .custom-entry p {
     margin-bottom: 0;
+}
+#content .custom-entry.amicus_brief img, #content .custom-entry.publication img, #content .custom-entry.filing img {
+    border: 1px solid #EEE;
 }
