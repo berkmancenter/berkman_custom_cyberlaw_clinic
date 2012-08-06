@@ -55,6 +55,10 @@ body {
     font-weight: normal;
 	border-bottom: 1px dotted #BBB;
 }
+body.single #content .entry-title {
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
 #content .entry-title {
     font-size: 30px;
     line-height: 36px;
@@ -241,6 +245,7 @@ h3.widget-title {
 }
 #content .custom-entry-title {
     border-bottom: 1px solid #eee;
+    font-size: 1.17em;
 }
 #content .custom-entry-title a {
     color: black;
