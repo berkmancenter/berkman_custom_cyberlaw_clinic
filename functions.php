@@ -143,6 +143,21 @@ function add_custom_post_types() {
         'public' => true,
         'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
+
+    register_post_type('class', array(
+        'label' => 'Class',
+        'labels' => array(
+            'name' => 'Classes',
+            'singular_name' => 'Class',
+            'add_new_item' => 'Add New Class',
+            'edit_item' => 'Edit Class',
+            'new_item' => 'New Class',
+            'view_item' => 'View Class',
+            'search_items' => 'Search Classes'
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
+    ));
 }
 function custom_post_shortcode($atts) {
 	extract( shortcode_atts( array(
