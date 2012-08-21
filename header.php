@@ -76,7 +76,7 @@
 						// Houston, we have a new header image!
 						echo get_the_post_thumbnail( $post->ID );
 					elseif ( get_header_image() ) : ?>
-						<!--<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />-->
+						<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
 					<?php endif; ?>
 			</div><!-- #branding -->
 
