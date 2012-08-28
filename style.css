@@ -143,7 +143,7 @@ h3.widget-title {
 	border-top: 2px solid #333;
 }
 #footer {
-	margin: 0;
+	margin: 15px 0 0 0;
 }
 #site-generator {
 	display: none;
