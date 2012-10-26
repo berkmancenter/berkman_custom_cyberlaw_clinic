@@ -68,14 +68,20 @@ body.single #content .entry-title {
 }
 
 #access {
-    background: #444;
+    background: #812020;
     margin-top: 6px;
 }
 #access a {
     font-size: 1.3em;
-    color: #CCC;
+    color: white;
 }
 
+#access ul li.current_page_item > a,
+#access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-item > a,
+#access ul li.current-menu-parent > a {
+    background-color: #C01515;
+}
 
 /**** Nav Stuff ****/
 #menu-navigation {
