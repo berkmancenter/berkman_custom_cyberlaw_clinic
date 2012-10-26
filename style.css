@@ -73,6 +73,8 @@ body.single #content .entry-title {
 }
 #access a {
     font-size: 1.3em;
+}
+#access #menu-primary > li > a {
     color: white;
 }
 
