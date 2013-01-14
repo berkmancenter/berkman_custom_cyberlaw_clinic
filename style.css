@@ -250,6 +250,7 @@ h3.widget-title {
 #content .custom-entry-title {
     border-bottom: 1px solid #eee;
     font-size: 1.17em;
+    padding-right: 30px;
 }
 #content .custom-entry-title a {
     color: black;
