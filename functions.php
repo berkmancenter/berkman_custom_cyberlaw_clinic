@@ -169,6 +169,7 @@ function custom_post_shortcode($atts) {
         'wrap' => 'true',
         'showtitle' => 'true',
         'hrs' => 'false',
+        'aslist' => 'false',
         'meta_key' => null
 	), $atts ) );
     $args = array();
@@ -231,7 +232,10 @@ function custom_post_shortcode($atts) {
                 if ($showtitle == 'true') {
                     $new_content = '<h3 class="custom-entry-title"><a href="' . get_permalink(get_the_ID()) . '">' . get_the_title() . '</a></h3>' . $new_content;
                 }
-                if ($wrap == 'true') {
+                if ($aslist == 'true') {
+                    $contents[] = '<li class="custom-entry ' . get_post_type(get_the_ID()) . '">' . $new_content . '</li>';
+                }
+                elseif ($wrap == 'true') {
                     $contents[] = '<div class="custom-entry ' . get_post_type(get_the_ID()) . '">' . $new_content . '</div>';
                 }
                 else {
@@ -242,6 +246,8 @@ function custom_post_shortcode($atts) {
     }
     if ($hrs == 'true') {
         $html = implode('<hr />', $contents);
+    } elseif ($aslist == 'true') {
+        $html = '<div id="featured-wrap"><ul class="featured bjqs">' . implode('', $contents) . '</ul></div>';
     } else {
         $html = implode('', $contents);
     }
@@ -250,12 +256,13 @@ function custom_post_shortcode($atts) {
 	return $html;
 }
 function featured_shortcode($atts) {
-    return do_shortcode('[custom-post orderby="rand" meta_key="featured" count="1"]');
+    return do_shortcode('[custom-post orderby="rand" meta_key="featured" aslist="true"]');
 }
 wp_enqueue_script('jquerycycle', get_bloginfo('stylesheet_directory') . '/jquery.cycle.all.min.js', array('jquery'));
 wp_enqueue_script('cyberlaw.js', get_bloginfo('stylesheet_directory') . '/cyberlaw.js', array('jquery'));
 wp_enqueue_script('jquery-ui', get_bloginfo('stylesheet_directory') . '/jquery-ui-1.8.16.custom.min.js', array('jquery'));
 wp_enqueue_script('hoverintent', get_bloginfo('stylesheet_directory') . '/jquery.hoverIntent.minified.js', array('jquery'));
+wp_enqueue_script('bjqs', get_bloginfo('stylesheet_directory') . '/bjqs-1.3.min.js', array('jquery'));
 add_action('init', 'add_fullwidth_footer');
 add_action('init', 'add_custom_post_types');
 add_shortcode( 'custom-post', 'custom_post_shortcode' );

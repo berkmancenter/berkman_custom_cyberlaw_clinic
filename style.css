@@ -6,6 +6,7 @@ Template: twentyten
 */
 
 @import url("../twentyten/style.css");
+@import url("bjqs.css");
 
 /**** General Stuff ****/
 body {
@@ -83,6 +84,11 @@ body.single #content .entry-title {
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
     background-color: #C01515;
+}
+
+/**** Featured ****/
+ul.featured {
+    margin: 0;
 }
 
 /**** Nav Stuff ****/
@@ -254,6 +260,7 @@ h3.widget-title {
 }
 #content .custom-entry p {
     margin-bottom: 0;
+    padding-right: 30px;
 }
 #content .custom-entry.amicus_brief img, #content .custom-entry.publication img, #content .custom-entry.filing img {
     border: 1px solid #EEE;

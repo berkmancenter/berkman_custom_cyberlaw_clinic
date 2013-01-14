@@ -7,4 +7,12 @@ jQuery(document).ready(function() {
         width: 205,
         pause: 1
 	});
+    jQuery('#featured-wrap').bjqs({
+        'height' : 420,
+        'width' : 640,
+        'automatic' : false,
+        'responsive' : true,
+        'showmarkers' : false,
+        'centercontrols' : false
+    });
 });
