@@ -69,26 +69,58 @@ body.single #content .entry-title {
 }
 
 #access {
-    background: #812020;
+    background: #444;
     margin-top: 6px;
 }
 #access a {
     font-size: 1.3em;
 }
 #access #menu-primary > li > a {
-    color: white;
+    color: #CCC;
 }
-
 #access ul li.current_page_item > a,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-    background-color: #C01515;
+    background-color: #333;
 }
+
 
 /**** Featured ****/
 ul.featured {
     margin: 0;
+}
+ol.bjqs-markers li a, ul.bjqs-controls li a {
+    font-size: 5em;
+    text-decoration: none;
+    color: #999;
+}
+ul.bjqs-controls li a {
+    font-size: 3em;
+    font-family: Arial;
+    color: #888;
+}
+ul.bjqs-controls li a:hover {
+    color: #333
+}
+ul.bjqs-controls, ol.bjqs-markers {
+    margin: 0;
+}
+ol.bjqs-markers {
+    margin-top: -0.5em;
+}
+ul.bjqs-controls {
+    margin-top: -3.5em;
+}
+ul.bjqs-controls li {
+    display: inline-block;
+    width: 50%;
+}
+.bjqs-next {
+    text-align: right;
+}
+ol.bjqs-markers li.active-marker a {
+    color: #333;
 }
 
 /**** Nav Stuff ****/

@@ -12,7 +12,11 @@ jQuery(document).ready(function() {
         'width' : 640,
         'automatic' : false,
         'responsive' : true,
-        'showmarkers' : false,
+        'prevtext' : '&#8249;',
+        'nexttext' : '&#8250;',
+        'showmarkers' : true,
         'centercontrols' : false
     });
+    jQuery('.bjqs-markers a').html('&#183');
+    jQuery('.bjqs-controls').before(jQuery('.bjqs-markers'));
 });
