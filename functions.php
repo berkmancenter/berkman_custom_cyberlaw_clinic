@@ -170,7 +170,8 @@ function custom_post_shortcode($atts) {
         'showtitle' => 'true',
         'hrs' => 'false',
         'aslist' => 'false',
-        'meta_key' => null
+        'meta_key' => null,
+        'excerpt' => 'false'
 	), $atts ) );
     $args = array();
     $event_type = null;
@@ -223,8 +224,9 @@ function custom_post_shortcode($atts) {
                     }
                     break;
                 }
-            }
-            else { 
+            } elseif ($excerpt == 'true') {
+                $new_content = get_the_excerpt();
+            } else { 
                 $new_content = get_the_content();
             }
 

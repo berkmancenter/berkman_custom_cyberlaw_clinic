@@ -273,27 +273,37 @@ h3.widget-title {
 }
 
 /**** Custom Entries ****/
-#content .custom-entry {
+#content .custom-entry, body.blog #content .post.type-post {
     border: 1px solid #DBDBDB;
     border-width: 1px 0px 0px 1px;
     padding: 5px 20px 5px;
     margin-bottom: 32px;
 }
-#content .custom-entry-title {
+#content .custom-entry-title, body.blog #content .entry-title {
     border-bottom: 1px solid #eee;
     font-size: 1.17em;
+    line-height: 1.5em;
     padding-right: 30px;
 }
-#content .custom-entry-title a {
+#content .custom-entry-title a, body.blog #content .entry-title a {
     color: black;
     text-decoration: none;
 }
-#content .custom-entry-title a:hover {
+#content .custom-entry-title a:hover, body.blog #content .entry-title a:hover {
     color: #777;
 }
-#content .custom-entry p {
+#content .custom-entry p, body.blog #content .post.type-post p {
     margin-bottom: 0;
     padding-right: 30px;
+}
+#content .more-link {
+    margin-left: 0.4em;
+}
+#content .entry-meta {
+    margin-top: 0.1em;
+}
+#content .entry-utility {
+    margin-top: 1em;
 }
 #content .custom-entry.amicus_brief img, #content .custom-entry.publication img, #content .custom-entry.filing img {
     border: 1px solid #EEE;
