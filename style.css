@@ -279,22 +279,28 @@ h3.widget-title {
     padding: 5px 20px 5px;
     margin-bottom: 32px;
 }
-#content .custom-entry-title, body.blog #content .entry-title {
+#content .custom-entry-title, body.blog #content h2.entry-title {
     border-bottom: 1px solid #eee;
     font-size: 1.17em;
     line-height: 1.5em;
     padding-right: 30px;
 }
-#content .custom-entry-title a, body.blog #content .entry-title a {
+body.blog #content h1.entry-title {
+    margin-bottom: 12px;
+}
+#content .custom-entry-title a, body.blog #content h2.entry-title a {
     color: black;
     text-decoration: none;
 }
-#content .custom-entry-title a:hover, body.blog #content .entry-title a:hover {
+#content .custom-entry-title a:hover, body.blog #content h2.entry-title a:hover {
     color: #777;
 }
 #content .custom-entry p, body.blog #content .post.type-post p {
     margin-bottom: 0;
     padding-right: 30px;
+}
+#content .custom-entry-excerpt {
+    text-align: justify;
 }
 #content .more-link {
     margin-left: 0.4em;
