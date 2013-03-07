@@ -225,7 +225,7 @@ function custom_post_shortcode($atts) {
                     break;
                 }
             } elseif ($excerpt == 'true') {
-                $new_content = '<p class="custom-entry-excerpt>'.get_the_excerpt().'</p>';
+                $new_content = '<p class="custom-entry-excerpt">'.get_the_excerpt().'</p>';
             } else { 
                 $new_content = get_the_content();
             }
