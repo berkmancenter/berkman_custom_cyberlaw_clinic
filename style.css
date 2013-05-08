@@ -134,6 +134,10 @@ ul.children {
 	overflow-x: hidden;
 }
 
+#access .menu-header, div.menu {
+    font-size: 12px;
+}
+
 
 /**** Widget Stuff ****/
 h3.widget-title {
