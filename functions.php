@@ -262,6 +262,16 @@ function custom_post_shortcode($atts) {
 function featured_shortcode($atts) {
     return do_shortcode('[custom-post orderby="rand" meta_key="featured" aslist="true"]');
 }
+function guest_author_name($name) {
+    global $post;
+    $author = get_post_meta($post->ID, 'author', true);
+    if ( $author )
+        $name = $author;
+    return $name;
+}
+function cyberlaw_header_image_height() {
+    return 66;
+}
 wp_enqueue_script('jquerycycle', get_bloginfo('stylesheet_directory') . '/jquery.cycle.all.min.js', array('jquery'));
 wp_enqueue_script('cyberlaw.js', get_bloginfo('stylesheet_directory') . '/cyberlaw.js', array('jquery'));
 wp_enqueue_script('jquery-ui', get_bloginfo('stylesheet_directory') . '/jquery-ui-1.8.16.custom.min.js', array('jquery'));
@@ -271,4 +281,7 @@ add_action('init', 'add_fullwidth_footer');
 add_action('init', 'add_custom_post_types');
 add_shortcode( 'custom-post', 'custom_post_shortcode' );
 add_shortcode( 'featured', 'featured_shortcode' );
+add_filter( 'the_author', 'guest_author_name' );
+add_filter( 'get_the_author_display_name', 'guest_author_name' );
+add_filter('twentyten_header_image_height', 'cyberlaw_header_image_height');
 ?>
