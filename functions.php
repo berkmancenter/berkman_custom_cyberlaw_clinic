@@ -158,20 +158,36 @@ function add_custom_post_types() {
         'public' => true,
         'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
     ));
+
+    register_post_type('newsletter', array(
+        'label' => 'Newsletters',
+        'labels' => array(
+            'name' => 'Newsletters',
+            'singular_name' => 'Newsletter',
+            'add_new_item' => 'Add New Newsletter',
+            'edit_item' => 'Edit Newsletter',
+            'new_item' => 'New Newsletter',
+            'view_item' => 'View Newsletter',
+            'search_items' => 'Search Newsletters'
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'page-attributes', 'custom-fields')
+    ));
 }
 function custom_post_shortcode($atts) {
 	extract( shortcode_atts( array(
-        'type' => null,
-		'id' => null,
-		'count' => 'all',
-        'order' => 'ASC',
-        'orderby' => 'date',
-        'wrap' => 'true',
-        'showtitle' => 'true',
-        'hrs' => 'false',
-        'aslist' => 'false',
-        'meta_key' => null,
-        'excerpt' => 'false'
+    'type' => null,
+    'id' => null,
+    'count' => 'all',
+    'order' => 'ASC',
+    'orderby' => 'date',
+    'wrap' => 'true',
+    'showtitle' => 'true',
+    'hrs' => 'false',
+    'aslist' => 'false',
+    'meta_key' => null,
+    'excerpt' => 'false',
+    'title' => null,
 	), $atts ) );
     $args = array();
     $event_type = null;
@@ -248,12 +264,17 @@ function custom_post_shortcode($atts) {
             }
         }
     }
-    if ($hrs == 'true') {
-        $html = implode('<hr />', $contents);
-    } elseif ($aslist == 'true') {
-        $html = '<div id="featured-wrap"><ul class="featured bjqs">' . implode('', $contents) . '</ul></div>';
+    if (isset($title) && !empty($contents)) {
+      $html = '<h2>' . sanitize_text_field($title) . '</h2>';
     } else {
-        $html = implode('', $contents);
+      $html = '';
+    }
+    if ($hrs == 'true') {
+        $html .= implode('<hr />', $contents);
+    } elseif ($aslist == 'true') {
+        $html .= '<div id="featured-wrap"><ul class="featured bjqs">' . implode('', $contents) . '</ul></div>';
+    } else {
+        $html .= implode('', $contents);
     }
     wp_reset_postdata();
 
