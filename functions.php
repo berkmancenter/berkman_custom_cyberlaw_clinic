@@ -242,7 +242,7 @@ function custom_post_shortcode($atts) {
                 }
             } elseif ($excerpt == 'true') {
                 global $more; $more=0;
-                $new_content = '<p class="custom-entry-excerpt">'.get_the_content('Continue Reading &rarr;').'</p>';
+                $new_content = '<p class="custom-entry-excerpt">'.get_the_content('&rarr;').'</p>';
                 $more=1;
             } else { 
                 $new_content = get_the_content();
@@ -293,6 +293,9 @@ function guest_author_name($name) {
 function cyberlaw_header_image_height() {
     return 66;
 }
+function read_more_link( $more_link, $more_link_text ) {
+	return str_replace('Continue reading', '', $more_link );
+}
 wp_enqueue_script('jquerycycle', get_bloginfo('stylesheet_directory') . '/jquery.cycle.all.min.js', array('jquery'));
 wp_enqueue_script('cyberlaw.js', get_bloginfo('stylesheet_directory') . '/cyberlaw.js', array('jquery'));
 wp_enqueue_script('jquery-ui', get_bloginfo('stylesheet_directory') . '/jquery-ui-1.8.16.custom.min.js', array('jquery'));
@@ -305,4 +308,5 @@ add_shortcode( 'featured', 'featured_shortcode' );
 add_filter( 'the_author', 'guest_author_name' );
 add_filter( 'get_the_author_display_name', 'guest_author_name' );
 add_filter('twentyten_header_image_height', 'cyberlaw_header_image_height');
+add_filter( 'the_content_more_link', 'read_more_link', 10, 2 );
 ?>
