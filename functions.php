@@ -265,7 +265,7 @@ function custom_post_shortcode($atts) {
         }
     }
     if (isset($title) && !empty($contents)) {
-      $html = '<h2>' . sanitize_text_field($title) . '</h2>';
+      $html = '<h2 class="entry-title">' . sanitize_text_field($title) . '</h2>';
     } else {
       $html = '';
     }
