@@ -55,6 +55,7 @@ body {
 	line-height: 28px;
     font-weight: normal;
 	border-bottom: 1px dotted #BBB;
+  margin-bottom: 0.7em;
 }
 body.single #content .entry-title {
     font-size: 1.3em;
