@@ -318,9 +318,14 @@ add_shortcode( 'custom-post', 'custom_post_shortcode' );
 add_shortcode( 'featured', 'featured_shortcode' );
 wp_enqueue_script('jquerycycle', get_bloginfo('stylesheet_directory') . '/jquery.cycle.all.min.js', array('jquery'));
 wp_enqueue_script('cyberlaw.js', get_bloginfo('stylesheet_directory') . '/cyberlaw.js', array('jquery'));
-wp_enqueue_script('jquery-ui', get_bloginfo('stylesheet_directory') . '/jquery-ui-1.10.4.custom.min.js', array('jquery'));
-wp_enqueue_script('hoverintent', get_bloginfo('stylesheet_directory') . '/jquery.hoverIntent.minified.js', array('jquery'));
 wp_enqueue_script('bjqs', get_bloginfo('stylesheet_directory') . '/bjqs-1.3.min.js', array('jquery'));
+//removed in favor of core WP jquery
+//wp_enqueue_script('jquery-ui', get_bloginfo('stylesheet_directory') . '/jquery-ui-1.10.4.custom.min.js', array('jquery'));
+//wp_enqueue_script('hoverintent', get_bloginfo('stylesheet_directory') . '/jquery.hoverIntent.minified.js', array('jquery'));
+wp_enqueue_script('jquery-ui-core');
+wp_enqueue_script('jquery-ui-accordion');
+wp_enqueue_script('jquery-ui-widget');
+wp_enqueue_script('hoverIntent');
 add_action('init', 'add_fullwidth_footer');
 add_action('init', 'add_custom_post_types');
 add_filter( 'the_author', 'guest_author_name' );
